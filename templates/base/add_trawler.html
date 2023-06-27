@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+        <div class="form-container">
+            <div class = 'header'>
+                <img src="static\css\icon\trawler.png" width="100" height="100" class="" alt="">
+            <h3 class = 'parking-info'>Добавить новый траулер</h3>
+            
+            <div class = 'traw'>
+            <form method="POST">
+                {% csrf_token %}
+                
+               
+                <div class="form-group">
+                  <label class = 'wTxt' for="id_capitan">Название:</label>
+                  {{ form.name }}
+                </div>
+                
+                <div class="form-group">
+                  <label  class = 'wTxt' for="id_trawler">Вместимость:</label>
+                  {{ form.spaciousness }}
+                </div>
+                <br>
+                <br>
+                <br>
+                <button class = 'btns' type="submit">Добавить</button>
+                <br>
+                <br>
+                <button type="button" class="btns" onclick="location.href='{% url 'main' %}'">Вернуться в главное меню</button> 
+              </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>

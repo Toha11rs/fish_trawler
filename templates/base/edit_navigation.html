@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение траулера</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+        <div class="form-container">
+            <div class = 'header'>
+            <h3 class = 'parking-info'>Изменить прибытие траулера</h3>
+            
+            <div class = 'traw'>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                  <label class = 'wTxt' for="id_catch">Улов:</label>
+                  {{ form.catch }}
+                </div>
+                
+                <div class="form-group">
+                  <label class = 'wTxt' for="id_date_navigation">Дата отправки:</label>
+                  {{ form.date_navigation }}
+                </div>
+                
+                <div class="form-group">
+                  <label class = 'wTxt' for="id_capitan">Капитан:</label>
+                  {{ form.capitan }}
+                </div>
+                
+                <div class="form-group">
+                  <label  class = 'wTxt' for="id_trawler">Траулер:</label>
+                  {{ form.trawler }}
+                </div>
+                <br>
+                <button class = 'btns' type="submit">Изменить</button>
+                <button type="button" class="btns" onclick="location.href='{% url 'main' %}'">Вернуться в главное меню</button> 
+              </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
