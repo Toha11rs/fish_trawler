@@ -25,16 +25,13 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <a class="navbar-brand btns2" href="/create_navigations">Добавить новое отправление</a>
   <a class="navbar-brand btns2" href="/create_trawler">Добавить новое судно</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      
-      
-      
-    </ul>
-    
+    </ul>  
   </div>
 </nav>
 
@@ -52,6 +49,16 @@
         </div> {% endcomment %}
 
         <div class="container">
+            <form method="get" class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control ser" name="search" placeholder="Поиск">
+                    <br>
+                    <button type="submit" class="btn btn-primary mb-2">Найти</button>
+                    <a href="{% url 'main' %}">
+                        <img src="static/css/reserchicon.png" width="40" height="40" class="d-inline-block align-top" alt="">
+                    </a>
+                </div>
+            </form>
             <table class = 'tabl'>
                 <thead>
                     <tr>
@@ -112,7 +119,7 @@
 <br>
 <footer class="footer">
     <div class="container">
-        <p>&copy; 2023 ABOBA COMPANY</p>
+        <p>&copy; 2023</p>
     </div>
 </footer>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>

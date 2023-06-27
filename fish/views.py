@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from fish import models
 from base.forms import NavigationForm,TrawlerForm
 from django.db.models import Sum
+from django.db.models import Q
+
 
 def main(request):
     all_catch = models.navigation.objects.aggregate(total=Sum('catch'))['total']
@@ -9,10 +11,23 @@ def main(request):
     navigation = models.navigation.objects.all()
     trawler= models.trawler.objects.all()
 
+    search_query = request.GET.get('search')
+
+    if search_query:
+        navigation = navigation.filter(
+            Q(capitan__name__icontains=search_query) |
+            Q(capitan__surname__icontains=search_query) |
+            Q(trawler__name__icontains=search_query) 
+          
+            # Q(navigation__date_navigation__icontains=search_query) 
+        )
+
+
     context = {
         "navigation": navigation,
         'trawler':trawler,
         'all_catch':all_catch,
+        'search_query':search_query,
     }
 
     return render(request,'base/main.html',context)
